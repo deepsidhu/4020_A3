@@ -2,6 +2,7 @@ package ca.joshadam;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -13,6 +14,7 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
+import Data.SetData;
 import android.app.Activity;
 import android.content.res.AssetManager;
 import android.content.res.XmlResourceParser;
@@ -56,22 +58,43 @@ public class A3_Activity extends Activity {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-
+		
+		
+		//this code calls the SetData class and gets the genres and 
+		//ratings which are stored. Note: used integers for ratings
+		//which are easier to compare
+		
+		SetData setData = new SetData();
+		ArrayList<String> genres=new ArrayList<String>();
+		genres=setData.getGenres();
+		ArrayList<Integer> ratings=new ArrayList<Integer>();
+		ratings=setData.getRatings();
+		
+		
+		
 		// GENRE SELECT
 		ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(
 				this, android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		adapter.add("some string data");
-		adapter.add("Fred");
+		for(String genre : genres)
+		{
+			adapter.add(genre);
+		
+		}
 		Spinner spinGenre = (Spinner) findViewById(R.id.spinner_genres);
 		spinGenre.setAdapter(adapter);
 
 		// RATING SELECT
-		ArrayAdapter<CharSequence> spinRatingAdapter = new ArrayAdapter<CharSequence>(
+		ArrayAdapter<Integer> spinRatingAdapter = new ArrayAdapter<Integer>(
 				this, android.R.layout.simple_spinner_item);
 		spinRatingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spinRatingAdapter.add("All");
-		spinRatingAdapter.add("R");
+		
+		for(Integer rating: ratings)
+		{
+		
+			spinRatingAdapter.add(rating);
+		
+		}
 		Spinner spinRating = (Spinner) findViewById( R.id.spinner_ratings );
 		spinRating.setAdapter( spinRatingAdapter );
 		
@@ -79,7 +102,6 @@ public class A3_Activity extends Activity {
 		final Button btn_search = (Button)findViewById(R.id.btn_search);
 		btn_search.setOnClickListener(new View.OnClickListener() {
 			
-			@Override
 			public void onClick(View v) {
 			}
 		});
