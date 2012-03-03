@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, A3_Activity!</string>
+    <string name="app_name">4020_A3</string>
+    <string name="movie_title_label">Movie Name</string>
+    <string name="movie_actor_name">Actor\'s Name</string>
+    <string name="spin_genre">Genre</string>
+    <string name="movie_director">Director</string>
+    <string name="movie_length">Movie Length</string>
+    <string name="movie_rating">Movie Rating</string>
+    <string name="btn_search">Search</string>
+    <string name="search_icon_desc">Search Icon</string>
+
+</resources>
